@@ -8,8 +8,8 @@ export class Service{
     
     constructor(){
         this.client
-        .setEndpoint(conf.APPWRITE_URL)
-        .setProject(conf.APPWRITE_PROJECT_ID);
+        .setEndpoint(conf.appwriteUrl)
+        .setProject(conf.appwriteProjectId);
         this.databases = new Databases(this.client);
         this.bucket = new Storage(this.client);
     }
@@ -55,8 +55,8 @@ export class Service{
     async deletePost(slug){
         try {
             await this.databases.deleteDocument(
-                conf.APPWRITE_DATABASE_ID,
-                conf.APPWRITE_TABLE_ID,
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
                 slug
             
             )
@@ -70,8 +70,8 @@ export class Service{
     async getPost(slug){
         try {
             return await this.databases.getDocument(
-                conf.APPWRITE_DATABASE_ID,
-                conf.APPWRITE_TABLE_ID,
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
                 slug
             
             )
@@ -84,8 +84,8 @@ export class Service{
     async getPosts(queries = [Query.equal("status", "active")]){
         try {
             return await this.databases.listDocuments(
-                conf.APPWRITE_DATABASE_ID,
-                conf.APPWRITE_TABLE_ID,
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
                 queries,
                 
 
@@ -101,7 +101,7 @@ export class Service{
     async uploadFile(file){
         try {
             return await this.bucket.createFile(
-                conf.APPWRITE_BUCKET_ID,
+                conf.appwriteBucketId,
                 ID.unique(),
                 file
             )
@@ -114,7 +114,7 @@ export class Service{
     async deleteFile(fileId){
         try {
             await this.bucket.deleteFile(
-                conf.APPWRITE_BUCKET_ID,
+                conf.appwriteBucketId,
                 fileId
             )
             return true
@@ -126,7 +126,7 @@ export class Service{
 
     getFilePreview(fileId){
         return this.bucket.getFilePreview(
-            conf.APPWRITE_BUCKET_ID,
+            conf.appwriteBucketId,
             fileId
         )
     }
