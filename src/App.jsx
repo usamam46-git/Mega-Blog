@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import './App.css'
 import authService from "./appwrite/auth"
-import {login, logout} from "./store/authSlice"
+import { login, logout } from "./store/authSlice"
 import { Footer, Header } from './components'
 import { Outlet } from 'react-router-dom'
 
@@ -12,22 +12,22 @@ function App() {
 
   useEffect(() => {
     authService.getCurrentUser()
-    .then((userData) => {
-      if (userData) {
-        dispatch(login({userData}))
-      } else {
-        dispatch(logout())
-      }
-    })
-    .finally(() => setLoading(false))
+      .then((userData) => {
+        if (userData) {
+          dispatch(login({ userData }))
+        } else {
+          dispatch(logout())
+        }
+      })
+      .finally(() => setLoading(false))
   }, [])
-  
+
   return !loading ? (
-    <div className='min-h-screen w-full flex flex-wrap content-between bg-blue-50'>
-      <div className='w-full block'>
+    <div className='min-h-screen w-full flex flex-wrap content-between absolute inset-0 z-0'>
+      <div className='w-full flex flex-col min-h-screen'>
         <Header />
-        <main>
-       <Outlet />
+        <main className='flex-grow'>
+          <Outlet />
         </main>
         <Footer />
       </div>

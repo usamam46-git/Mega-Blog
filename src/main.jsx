@@ -73,9 +73,14 @@ const router = createBrowserRouter([
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  <React.StrictMode >
+  <div className="min-h-screen w-full relative">
+      <div
+       style={{backgroundColor: 'white'}}
+      />
     <Provider store={store}>
     <RouterProvider router={router}/>
     </Provider>
+</div>
   </React.StrictMode>,
 )

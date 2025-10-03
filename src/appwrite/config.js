@@ -18,7 +18,7 @@ export class Service{
         try {
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId,
-                conf.appwriteCollectionId,
+                conf.appwriteTableId,
                 slug,
                 {
                     title,
@@ -37,7 +37,7 @@ export class Service{
         try {
             return await this.databases.updateDocument(
                 conf.appwriteDatabaseId,
-                conf.appwriteCollectionId,
+                conf.appwriteTableId,
                 slug,
                 {
                     title,
@@ -56,7 +56,7 @@ export class Service{
         try {
             await this.databases.deleteDocument(
                 conf.appwriteDatabaseId,
-                conf.appwriteCollectionId,
+                conf.appwriteTableId,
                 slug
             
             )
@@ -71,7 +71,7 @@ export class Service{
         try {
             return await this.databases.getDocument(
                 conf.appwriteDatabaseId,
-                conf.appwriteCollectionId,
+                conf.appwriteTableId,
                 slug
             
             )
@@ -85,7 +85,7 @@ export class Service{
         try {
             return await this.databases.listDocuments(
                 conf.appwriteDatabaseId,
-                conf.appwriteCollectionId,
+                conf.appwriteTableId,
                 queries,
                 
 
@@ -124,8 +124,8 @@ export class Service{
         }
     }
 
-    getFilePreview(fileId){
-        return this.bucket.getFilePreview(
+    getFileView(fileId){
+        return this.bucket.getFileView(
             conf.appwriteBucketId,
             fileId
         )

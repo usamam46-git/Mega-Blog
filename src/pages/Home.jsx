@@ -15,12 +15,12 @@ function Home() {
   
     if (posts.length === 0) {
         return (
-            <div className="w-full py-8 mt-4 text-center">
+            <div className="w-full py-8 h-[90vh] text-center bg-[url('/bgpic.jpg')] bg-cover bg-center">
                 <Container>
                     <div className="flex flex-wrap">
                         <div className="p-2 w-full">
-                            <h1 className="text-2xl font-bold hover:text-gray-500">
-                                Login to read posts
+                            <h1 className="text-4xl mt-10 font-bold hover:text-gray-500">
+                              <span className='text-white'>Login to</span>   <span className="text-[#05529D]">read posts!</span>
                             </h1>
                         </div>
                     </div>
