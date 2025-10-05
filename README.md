@@ -1,4 +1,4 @@
-# 📰 Mega Blog
+# 📰 Pro Blog
 
 Mega Blog is a full-featured blogging platform built with **React**, powered by **Appwrite** for backend and authentication, styled with **Tailwind CSS**, and enhanced with the **TinyMCE Editor** for rich text editing.
 
