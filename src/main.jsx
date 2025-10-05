@@ -71,7 +71,7 @@ const router = createBrowserRouter([
     ],
 },
 ],{
-     basename: '/Mega-Blog',
+     basename: '/Pro-Blog',
 })
 
 ReactDOM.createRoot(document.getElementById('root')).render(
