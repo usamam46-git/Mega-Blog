@@ -70,7 +70,9 @@ const router = createBrowserRouter([
         },
     ],
 },
-])
+],{
+     basename: '/Mega-Blog',
+})
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode >
